@@ -10,13 +10,11 @@ class Button extends React.Component {
         // console log the context
         // console.log(this.context)
         // replace the console log with logic for lang change on the btn
-        const text = this.context === 'english' ? 'Submit' : 'Voorleggen';
-        // Not selecting the 3rd lang why?
-        // const text = this.context === 'english' ? 'Submit' : 'japanese' ? 'Sanka Suru' : 'Voorleggen';
-        // const text = this.context === 
-        // 'english' ? 'Submit' 
-        // : 'dutch' ? 'Voorleggen' 
-        // : 'Sanka Suru';
+        // const text = this.context === 'english' ? 'Submit' : 'Voorleggen'; //original from video
+
+        // 3rd lang : mine?
+        const text = this.context === 'english' ? 'Submit' 
+        : (this.context === 'dutch' ?  'Voorleggen' : 'Sanka Suru' );
 
         return ( 
             <div className = 'ui button primary'>

@@ -7,15 +7,13 @@ class Field extends React.Component {
 
     render() {
         // add logic to change the lang field
-        const text = this.context === 'english' ? 'Name' : 'Naam';
+        // const text = this.context === 'english' ? 'Name' : 'Naam';
+        //original from video
         
-        // Following not selecting the 3rd lang why?
-        // const text = this.context === 'english' ? 'Name' : 'japanese' ? 'Namae' : 'Naam' ;
+        // 3rd lang : mine
+        const text = this.context === 'english' ? 'Name' 
+        : (this.context === 'dutch' ? 'Naam' : 'Namae') ;
 
-        // const text = this.context === 
-        // 'english' ? 'Name' 
-        // : 'dutch' ? 'Naam'
-        // : 'Namae';
 
         return ( 
             <div className = 'ui field'>
