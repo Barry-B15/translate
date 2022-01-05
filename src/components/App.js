@@ -18,7 +18,7 @@ class App extends React.Component {
                     3. add listeners to the flags */}
                     <i className="flag us" onClick={() => this.onLanguageChange('English')} />
                     <i className="flag nl" onClick={() => this.onLanguageChange('Dutch')} />
-                        <i className="flag jp" onClick={() => this.onLanguageChange('Japanese')} />
+                    <i className="flag jp" onClick={() => this.onLanguageChange('Japanese')} />
                 </div>
                 {/* call the onlanguage change method to toggle the langs */}
                 {/* {this.state.language} */}
