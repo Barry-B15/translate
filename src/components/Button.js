@@ -19,7 +19,7 @@ class Button extends React.Component {
         // : 'Sanka Suru';
 
         return ( 
-            <div className = 'ui button primary' >
+            <div className = 'ui button primary'>
                 {/* Submit  */}
                 { text }
             </div>

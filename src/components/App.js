@@ -1,5 +1,6 @@
 import React from "react";
 import UserCreate from "./UserCreate";
+import LanguageContext from "../contexts/LanguageContext";
 
 class App extends React.Component {
     //1 set the state with englis as default lang
@@ -7,8 +8,9 @@ class App extends React.Component {
 
     //4. def onLangauge change
     onLanguageChange = language => {
-        this.setState({ language }) //shorthand since laguage : language are the same
-    }
+        this.setState({ language }); //shorthand since laguage : language are the same
+    };
+
     render() {
         return (
             <div className="ui container"> 
@@ -16,14 +18,18 @@ class App extends React.Component {
                     Select a Language:
                     {/*2 get the flag icons
                     3. add listeners to the flags */}
-                    <i className="flag us" onClick={() => this.onLanguageChange('English')} />
-                    <i className="flag nl" onClick={() => this.onLanguageChange('Dutch')} />
-                    <i className="flag jp" onClick={() => this.onLanguageChange('Japanese')} />
+                    <i className="flag us" onClick={() => this.onLanguageChange('english')} />
+                    <i className="flag nl" onClick={() => this.onLanguageChange('dutch')} />
+                    <i className="flag jp" onClick={() => this.onLanguageChange('japanese')} />
                 </div>
                 {/* call the onlanguage change method to toggle the langs */}
                 {/* {this.state.language} */}
                 {/* Replace this.state with UserCreate */}
-                <UserCreate />
+
+                {/* wrap userCreate with the Provider and pass a value for what pass to the Context Obj */}
+                <LanguageContext.Provider value={this.state.language}>
+                     <UserCreate />
+                </LanguageContext.Provider>
             </div>
         );
     }

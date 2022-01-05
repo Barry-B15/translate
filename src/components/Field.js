@@ -18,7 +18,7 @@ class Field extends React.Component {
         // : 'Namae';
 
         return ( 
-            <div className = 'ui field' >
+            <div className = 'ui field'>
                 {/* <label> Name </label>  */}
                 <label> { text } </label> 
                 <input / >
@@ -26,4 +26,5 @@ class Field extends React.Component {
         );
     }
 }
+
 export default Field;
