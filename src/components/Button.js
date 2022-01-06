@@ -1,34 +1,43 @@
 import React from 'react';
 import LanguageContext from '../contexts/LanguageContext';
-
+import ColorContext from '../contexts/ColorContext';
 
 class Button extends React.Component {
-    // 1. remove the contextType, its for default
-    // static contextType = LanguageContext;
-// Create a helper class for the func
-        renderSubmit(value) {
-            return(
-                value === 'english' ? 'Submit' 
+
+    renderSubmit(value) {
+        return(
+            value === 'english' ? 'Submit' 
                     : (value === 'dutch' ? 'Voorleggen' 
                     : 'Sanka Suru')
             );
-        }
-    
-    render() {
-        // remove the logic
-        // 3rd lang : mine?
-        // const text = this.context === 'english' ? 'Submit' 
-        // : (this.context === 'dutch' ?  'Voorleggen' : 'Sanka Suru' );
-
-        return ( 
-            <button className = 'ui button primary'>
-             
-                {/* { text } */}
-                {/* Replace the {text} with a Consumer wrapped around a func */}
+    }
+    // Create a new helper
+    renderButton(color) {
+        return(
+            // move the btn here
+            <button className={`ui button ${color}`}>
                 <LanguageContext.Consumer>
                     {(value) => this.renderSubmit(value)}
                 </LanguageContext.Consumer>
             </button>
+        )
+    }
+
+    render() {
+        return ( 
+            // wrap the btn with the Consumer
+            <ColorContext.Consumer>
+            {/* The only child of the Consumer is a func, create one and move the btn block into it */}
+                {color => this.renderButton(color)
+                    // Move the btn to the helper and call the helper method here
+                    // refactor this to get the color value
+                    // <button className = {`ui button ${color}`}>
+                    //     <LanguageContext.Consumer>
+                    //         {(value) => this.renderSubmit(value)}
+                    //     </LanguageContext.Consumer>
+                    // </button>
+                }
+            </ColorContext.Consumer> 
         );
     }
 }
