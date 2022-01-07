@@ -9,16 +9,16 @@ class Field extends React.Component {
         // add logic to change the lang field
         // const text = this.context === 'english' ? 'Name' : 'Naam';
         //original from video
-        
+
         // 3rd lang : mine
-        const text = this.context === 'english' ? 'Name' 
-        : (this.context === 'dutch' ? 'Naam' : 'Namae') ;
+        const text = this.context.language === 'english' ? 'Name' 
+        : (this.context.language === 'dutch' ? 'Naam' : 'Namae');
 
 
         return ( 
-            <div className = 'ui field'>
-                {/* <label> Name </label>  */}
-                <label> { text } </label> 
+            <div className = 'ui field' > 
+                { /* <label> Name </label>  */ } 
+                <label > { text } </label>  
                 <input / >
             </div>
         );
