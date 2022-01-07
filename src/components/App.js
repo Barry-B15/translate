@@ -1,38 +1,33 @@
 import React from "react";
 import UserCreate from "./UserCreate";
-import LanguageContext from "../contexts/LanguageContext";
+import { LanguageStore } from "../contexts/LanguageContext";
 import ColorContext from "../contexts/ColorContext";
 import LanguageSelector from "./LanguageSelector";
 
 class App extends React.Component {
    
-    state = { language: 'english'};
+    // state = { language: 'english'};
     
-    onLanguageChange = language => {
-        this.setState({ language }); //shorthand since laguage : language are the same
-    };
+    // onLanguageChange = language => {
+    //     this.setState({ language }); 
+    // };
 
     render() {
         return (
             <div className="ui container"> 
-            {/* cut the div to LanguageSelector, 
-            come back later, render the LanguageSelector and pass it onLanguageChange as ff */}
-                <LanguageSelector onLanguageChange={this.onLanguageChange} />
-                {/* <div>
-                    Select a Language:
-                    <i className="flag us" onClick={() => this.onLanguageChange('english')} />
-                    <i className="flag nl" onClick={() => this.onLanguageChange('dutch')} />
-                    <i className="flag jp" onClick={() => this.onLanguageChange('japanese')} />
-                </div> */}
-                
-                {/* wrap user create with the context Provider, could be in or outside the old Provider */}
-                <ColorContext.Provider value="red">
-                    <LanguageContext.Provider value={this.state.language}>
-                        <UserCreate />
-                    </LanguageContext.Provider>
-                </ColorContext.Provider>
-                
-
+            {/* wrap the content with the Language store */}
+                <LanguageStore>
+                    <LanguageSelector 
+                    // onLanguageChange={this.onLanguageChange}
+                     />
+                    
+                    <ColorContext.Provider value="red">
+                        {/* remove the old Language context provider */}
+                        {/* <LanguageContext.Provider value={this.state.language}> */}
+                            <UserCreate />
+                        {/* </LanguageContext.Provider> */}
+                    </ColorContext.Provider>
+                </LanguageStore>
             </div>
         );
     }

@@ -18,7 +18,7 @@ export class LanguageStore extends React.Component {
     // 5. now render the Context Provider with the selected lang value + the callback value
     render() {
         return ( 
-            <Context.Provider value={{...this.state, onLanguageChange } } > 
+            <Context.Provider value={{...this.state, onLanguageChange : this.onLanguageChange} } > 
                 { this.props.children } 
             </Context.Provider>
         );
