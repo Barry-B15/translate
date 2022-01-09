@@ -12,7 +12,7 @@ class Field extends React.Component {
 
         // 3rd lang : mine
         const text = this.context.language === 'english' ? 'Name' 
-        : (this.context.language === 'dutch' ? 'Naam' : 'Namae');
+            : (this.context.language === 'dutch' ? 'Naam' : '名前 | Namae');
 
 
         return ( 

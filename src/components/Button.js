@@ -8,7 +8,7 @@ class Button extends React.Component {
             return (
                 language === 'english' ? 'Submit' 
                 : (language === 'dutch' ? 'Voorleggen' 
-                : 'Sanka Suru')
+                        : '参加する | Sanka Suru')
             );
         }
         // Create a new helper
